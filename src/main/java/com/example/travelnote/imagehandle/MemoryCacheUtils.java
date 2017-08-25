@@ -28,7 +28,7 @@ public class MemoryCacheUtils {
         int totalMemory = (int) Runtime.getRuntime().totalMemory();
         Log.e("最大可分配内存", "MemoryCacheUtils: " + maxMemory / (1024*1024));//256M
         Log.e("当前堆栈大小", "MemoryCacheUtils: " + totalMemory / (1024*1024));//20M
-        int maxSize = 8*1024*1024; //缓存空间为当前堆栈的大小
+        int maxSize = 881024*1024; //缓存空间设为8M
         lruCache = new LruCache<String, Bitmap>(maxSize){
             @Override
             protected int sizeOf(String key, Bitmap value) {

@@ -69,7 +69,7 @@ public class NetCacheUtils {
                 urlString = params[0];
                 byte[] result = download(urlString);
                 if (result != null){
-                    Bitmap bitmap = bitmapCompress.getSmallBitmap(result);
+                    Bitmap bitmap = bitmapCompress.getSmallBitmap(imageView, result);
                     if (bitmap != null){
                         memoryCache.setBitmap(urlString, bitmap);
                         localCacheUtils.addToLocalCache(urlString, bitmap);
@@ -85,7 +85,8 @@ public class NetCacheUtils {
             super.onPostExecute(bitmap);
             ImageView imageView = getAttachImageView();
             if (imageView != null){
-                if (bitmap != null && !bitmap.isRecycled()){
+                if (bitmap != null){
+                    Log.e(TAG, "压缩后图片大小: "+ bitmap.getByteCount()/1024);
                     imageView.setImageBitmap(bitmap);
                 }else {
                     imageView.setImageResource(R.mipmap.default_cirmg);

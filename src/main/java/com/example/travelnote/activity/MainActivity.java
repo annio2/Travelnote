@@ -1,4 +1,4 @@
-package com.example.travelnote.activity;
+﻿package com.example.travelnote.activity;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -18,9 +18,8 @@ import android.widget.Toast;
 
 import com.example.travelnote.R;
 import com.example.travelnote.adapter.RecyclerPullMoreAdapter;
-import com.example.travelnote.imagehandle.LocalCacheUtils;
 import com.example.travelnote.utils.JsonUtils;
-import com.example.travelnote.jsonbean.Response;
+import com.example.travelnote.bean.Response;
 
 import java.util.List;
 
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 Log.d(TAG, "onScrollStateChanged: " + newState);
-                //判断RecyclerView当前滑动状态与最后一个可见位置，SCROLL_STATE_IDLE为正在滚动,SCROLL_STATE_DRAGGING为正在被拖拽
+                //判断RecyclerView当前滑动状态与最后一个可见位置，SCROLL_STATE_IDLE为停止滚动,SCROLL_STATE_DRAGGING为正在被拖拽
                 //SCROLL_STATE_SETTLING为自动滚动开始
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisiablePosition == adapter.getItemCount() - 1) {
                     boolean isRefreshing = swipeRefreshLayout.isRefreshing();

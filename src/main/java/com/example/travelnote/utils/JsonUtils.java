@@ -1,7 +1,7 @@
 package com.example.travelnote.utils;
 
-import com.example.travelnote.jsonbean.Response;
-import com.example.travelnote.jsonbean.TravelNote;
+import com.example.travelnote.bean.Response;
+import com.example.travelnote.bean.TravelNote;
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -10,7 +10,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

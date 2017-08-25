@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 import com.example.travelnote.R;
 import com.example.travelnote.imagehandle.MyImageLoder;
-import com.example.travelnote.jsonbean.Response;
+import com.example.travelnote.bean.Response;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -76,11 +77,13 @@ public class RecyclerPullMoreAdapter extends RecyclerView.Adapter {
             String commentNum = String.valueOf(dataList.get(pos).getCommentNum());//评论数量
             final String link = dataList.get(pos).getLink();//点击图片链接
             myImageLoder.display(imgUrl, ((ItemHolder) holder).cardItemImg);//加载图片
+//            Picasso.with(context).load(imgUrl).into(((ItemHolder) holder).cardItemImg);
             if (TextUtils.isEmpty(dataList.get(pos).getUserIconUrl())){
                 //获取到的头像路径为空时，加载默认图片
                 ((ItemHolder) holder).cardItemCirImg.setImageResource(R.mipmap.default_cirmg);
             }else {
                 myImageLoder.display(imgCirUrl, ((ItemHolder) holder).cardItemCirImg);
+//                Picasso.with(context).load(imgCirUrl).into(((ItemHolder) holder).cardItemCirImg);
             }
             ((ItemHolder) holder).cardItemTitle.setText(dataList.get(pos).getTitle());//标题
             ((ItemHolder) holder).cardItemZan.setText(zanNum);
